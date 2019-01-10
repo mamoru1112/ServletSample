@@ -3,7 +3,6 @@
   <groupId>SevletFilterSample</groupId>
   <artifactId>mytest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-<!--   <packaging>war</packaging> -->
   <url>http://maven.apache.org</url>
   
   <dependencies>
@@ -19,13 +18,21 @@
   <build>
       <plugins>
           <plugin>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>3.1.1</version>
+              <executions>
+                  <execution>
+                      <id>default-jar</id>
+                      <phase>none</phase>
+                  </execution>
+              </executions>
+          </plugin>
+          <plugin>
               <artifactId>maven-war-plugin</artifactId>
               <version>2.6</version>
-<!--               <configuration>
-                  <warName>ROOT</warName>
-              </configuration> -->
                <executions>
                   <execution>
+                      <id>exploded-war</id>
                       <phase>package</phase>
                       <configuration>
                           <webappDirectory>target/ROOT.war</webappDirectory>
